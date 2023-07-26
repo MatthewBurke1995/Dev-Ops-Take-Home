@@ -123,8 +123,8 @@ resource "aws_ecs_task_definition" "hello_world" {
     "networkMode": "awsvpc",
     "portMappings": [
       {
-        "containerPort": var.container_port,
-        "hostPort": var.container_port 
+        "containerPort": ${var.container_port},
+        "hostPort": ${var.container_port} 
       }
     ]
   }
