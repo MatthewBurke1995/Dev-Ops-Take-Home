@@ -11,3 +11,6 @@ I'll just do the first task so I can have it as a reference.
 
 # Test
     pytest
+
+# deploy using terraform
+    TF_VAR_ACCESS_KEY="xxxx" TF_VAR_SECRET_KEY="xxxx" terraform apply
