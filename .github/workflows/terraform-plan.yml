@@ -24,4 +24,4 @@ jobs:
       run: terraform init -backend-config="access_key=${TF_VAR_ACCESS_KEY}" -backend-config="secret_key=${TF_VAR_SECRET_KEY}"
 
     - name: Terrafor Plan
-      runL terraform plan
+      run: terraform plan
