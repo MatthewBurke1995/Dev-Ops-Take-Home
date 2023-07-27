@@ -1,11 +1,4 @@
 terraform {
-  cloud {
-    organization = "testing-dev-ops-takehome"
-
-    workspaces {
-      name = "devops-takehome"
-    }
-  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -13,13 +6,13 @@ terraform {
     }
   }
 
-  #backend "s3" {
-  #  bucket = "devops-take-home-state"
-  #  key = "global/s3/terraform.tfstate"
-  #  region = "us-east-2"
-  #  dynamodb_table = "devops-take-home-locks"
-  #  encrypt = true
-  #  }
+  backend "s3" {
+    bucket = "devops-take-home-state"
+    key = "global/s3/terraform.tfstate"
+    region = "us-east-2"
+    dynamodb_table = "devops-take-home-locks"
+    encrypt = true
+    }
 }
 
 provider "aws" {
