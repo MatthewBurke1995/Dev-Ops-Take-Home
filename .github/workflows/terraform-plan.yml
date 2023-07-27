@@ -1,0 +1,27 @@
+name: "Terraform Plan"
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  TF_VAR_ACCESS_KEY: "${{secrets.TF_VAR_ACCESS_KEY}}"
+  TF_VAR_SECRET_KEY: "${{secrets.TF_VAR_SECRET_KEY}}"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+
+    - name: Terraform Init
+      run: terraform init -backend-config="access_key=${TF_VAR_ACCESS_KEY}" -backend-config="secret_key=${TF_VAR_SECRET_KEY}"
+
+    - name: Terrafor Plan
+      runL terraform plan
